@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  tensorflow:
+    build:
+      context: ../
+      dockerfile: deploy/app/Dockerfile
+    image: local/tensorflow
+    container_name: tensorflow
+    volumes:
+      - ../:/var/www/app
+    networks:
+      - bridge
+
+networks:
+  bridge:
+    driver: bridge
